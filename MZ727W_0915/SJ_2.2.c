@@ -9,13 +9,13 @@ void feladat();
 
 int main() {
     feladat();
-    retrun 0;
+    return 0;
 }
 
 void feladat() {
     FILE *f;
     char c, fnev[50];
-    printf("Fájlnáv: ");
+    printf("Fájlnév: ");
     scanf("%s", fnev);
     f = fopen(fnev, "w");
     printf("Üzenet: ");
@@ -25,7 +25,7 @@ void feladat() {
     fclose(f);
 
     fopen(fnev, "r");
-    while ((ch = getc(f)) != EOF) {
+    while ((c = getc(f)) != EOF) {
         printf("%c", c);
     }
     fclose(f);
