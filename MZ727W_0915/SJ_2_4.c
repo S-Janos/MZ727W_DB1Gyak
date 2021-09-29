@@ -29,6 +29,7 @@ int main() {
     }
 
     finder(116);
+    printf("\nA fájlban tárolt autók átlagára: %d", atlag());
     return 0;
 }
 
@@ -75,4 +76,47 @@ int finder(const int fkod) {
 
     fclose(fp);
     return 0;
+}
+
+int atlag() {
+    FILE *fp;
+    Auto jarmu;
+    int i, filesize, temp = 0;
+    fp = fopen(file, "rb");
+    if (!fp) { printf("Hiba: nem lehet meynitni a fájlt."); return -1; }
+
+    fseek(fp, 0L, SEEK_END);
+    filesize = ftell(fp)/sizeof(Auto);
+
+    for (i = 0; i < filesize; i++) {
+        fseek(fp, sizeof(Auto) * i, fkod);
+        fread(&jarmu, sizeof(Auto), i, fp);
+        temp += jarmu.ar;
+    }
+    temp /= filesize;
+
+    fclose(fp);
+    return temp;
+}
+
+int max() {
+    FILE *fp;
+    Auto jarmu;
+    int i, filesize, temp = 0;
+    fp = fopen(file, "rb");
+    if (!fp) { printf("Hiba: nem lehet meynitni a fájlt."); return -1; }
+
+    fseek(fp, 0L, SEEK_END);
+    filesize = ftell(fp)/sizeof(Auto);
+
+    for (i = 0; i < filesize; i++) {
+        fseek(fp, sizeof(Auto) * i, fkod);
+        fread(&jarmu, sizeof(Auto), i, fp);
+        if (temp < jarmu.ar){
+            temp = jarmu.ar;
+        }
+    }
+
+    fclose(fp);
+    return temp;
 }
