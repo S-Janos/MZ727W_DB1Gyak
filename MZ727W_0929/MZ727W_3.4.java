@@ -1,9 +1,6 @@
 package com.pekidzs;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
+import java.io.*;
 
 class f4 {
     public void hf2(String fnev) {
@@ -11,7 +8,7 @@ class f4 {
         String[] szavak;
         int sorid = 0;
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(fnev));
+            BufferedReader br = new BufferedReader(new FileReader(fnev));
             while ((sor = br.readLine()) != null) {
                 System.out.println(sor.toUpperCase());
             }
