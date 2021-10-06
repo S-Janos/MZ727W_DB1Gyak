@@ -1,0 +1,13 @@
+Egy hallgató több könyvet is használhat.
+Egy könyvet több hallgató is használhat.
+Egy könyv csak egy könyvtárban van.
+Egy könyvtárban több könyv is lehet.
+Egy campuson lehet több könyvtár is.
+Egy könyvtár csak egy campushoz tartozik.
+Egy könyvnek több szerője is lehet.
+Egy szerzőnek több könyve is lehet.
+
+Minden hallgatónak van egy neve és egy egyedi Neptun kódja.
+Minden könyvnek van egy címe és egy egyedi ISBN szám azonosítója.
+Minden könyvtárnak van egy neve és egy egyedi K_kód azonosítója.
+Minden campusnak van egy címe és egy egyedi azonosítója.
