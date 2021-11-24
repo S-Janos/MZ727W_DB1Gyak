@@ -1,0 +1,33 @@
+begin
+  insert into Tárgy values ('OKT101', 'Gyarmati Fanni', 'AIF');
+  insert into Tárgy values ('OKT102', 'Tury Denes', 'Analízis');
+  insert into Tárgy values ('OKT103', 'Thury Vayk', 'Fizika');
+  insert into Tárgy values ('OKT104', 'Ferencz Lorencz', 'Kémia');
+  insert into Tárgy values ('OKT105', 'Csikós Surány', 'AIF');
+  insert into Tárgy values ('OKT106', 'Forgách Hanna', 'Filózófia');
+end;
+
+CREATE TABLE Tárgy(
+    kód int PRIMARY KEY,
+    kredit int,
+    megnevezés varchar(50),
+    okód varchar(6),
+    FOREIGN KEY (okód) REFERENCES Oktató(neptunkód)
+)
+
+CREATE TABLE Hallgató(
+    neptunkód varchar(6) PRIMARY KEY,
+    név varchar (50),
+    tankör varchar(50),
+    születés date,
+    cim varchar(100)
+)
+
+CREATE TABLE Targy_Hallgató(
+    tkód int,
+    félév varchar(10),
+    vizsgajegy int,
+    hkód varchar(6),
+    FOREIGN KEY (tkód) REFERENCES Tárgy(kód),
+    FOREIGN KEY (hkód) REFERENCES Hallgató(neptunkód)
+)
