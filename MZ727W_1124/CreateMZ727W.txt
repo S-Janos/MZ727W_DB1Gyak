@@ -1,0 +1,30 @@
+CREATE TABLE Oktató(
+    neptunkód varchar(6) PRIMARY KEY,
+    név varchar(50),
+    tanszék varchar(50)
+)
+
+CREATE TABLE Tárgy(
+    kód int PRIMARY KEY,
+    kredit int,
+    megnevezés varchar(50),
+    okód varchar(6),
+    FOREIGN KEY (okód) REFERENCES Oktató(neptunkód)
+)
+
+CREATE TABLE Hallgató(
+    neptunkód varchar(6) PRIMARY KEY,
+    név varchar (50),
+    tankör varchar(50),
+    születés date,
+    cim varchar(100)
+)
+
+CREATE TABLE Targy_Hallgató(
+    tkód int,
+    félév varchar(10),
+    vizsgajegy int,
+    hkód varchar(6),
+    FOREIGN KEY (tkód) REFERENCES Tárgy(kód),
+    FOREIGN KEY (hkód) REFERENCES Hallgató(neptunkód)
+)
