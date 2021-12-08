@@ -1,33 +1,28 @@
 begin
-  insert into Tárgy values ('OKT101', 'Gyarmati Fanni', 'AIF');
-  insert into Tárgy values ('OKT102', 'Tury Denes', 'Analízis');
-  insert into Tárgy values ('OKT103', 'Thury Vayk', 'Fizika');
-  insert into Tárgy values ('OKT104', 'Ferencz Lorencz', 'Kémia');
-  insert into Tárgy values ('OKT105', 'Csikós Surány', 'AIF');
-  insert into Tárgy values ('OKT106', 'Forgách Hanna', 'Filózófia');
+  insert into Oktató values ('OKT101', 'Oktató 1', 'AIF');
+  insert into Oktató values ('OKT102', 'Oktató 2', 'Fizika');
+  insert into Oktató values ('OKT103', 'Oktató 3', 'AIF');
 end;
 
-CREATE TABLE Tárgy(
-    kód int PRIMARY KEY,
-    kredit int,
-    megnevezés varchar(50),
-    okód varchar(6),
-    FOREIGN KEY (okód) REFERENCES Oktató(neptunkód)
-)
+begin
+    insert into Tárgy values(1, 5, 'Tárgy 1', 'OKT101');
+    insert into Tárgy values(2, 3, 'Tárgy 2', 'OKT102');
+    insert into Tárgy values(3, 4, 'Tárgy 3', 'OKT101');
+    insert into Tárgy values(4, 3, 'Tárgy 4', 'OKT103');
+    insert into Tárgy values(5, 2, 'Tárgy 5', 'OKT101');
+end;
 
-CREATE TABLE Hallgató(
-    neptunkód varchar(6) PRIMARY KEY,
-    név varchar (50),
-    tankör varchar(50),
-    születés date,
-    cim varchar(100)
-)
+begin
+    insert into Hallgató values('HLG101', 'Hallgató 1', 'TK1', '01/01/2000', '3210, A, B u 1.');
+    insert into Hallgató values('HLG102', 'Hallgató 2', 'TK1', '02/01/2000', '3210, A, B u 2.');
+    insert into Hallgató values('HLG103', 'Hallgató 3', 'TK2', '03/01/2000', '3210, A, C u 1.');
+    insert into Hallgató values('HLG104', 'Hallgató 4', 'TK3', '04/01/2000', '3210, A, D u 1.');
+    insert into Hallgató values('HLG105', 'Hallgató 5', 'TK2', '05/01/2000', '3210, A, C u 2.');
+end;
 
-CREATE TABLE Targy_Hallgató(
-    tkód int,
-    félév varchar(10),
-    vizsgajegy int,
-    hkód varchar(6),
-    FOREIGN KEY (tkód) REFERENCES Tárgy(kód),
-    FOREIGN KEY (hkód) REFERENCES Hallgató(neptunkód)
-)
+begin
+    insert into Hallgató values(3, 2, 5, 'HLG101');
+    insert into Hallgató values(1, 4, 3, 'HLG103');
+    insert into Hallgató values(5, 1, 1, 'HLG104');
+    insert into Hallgató values(3, 4, 3, 'HLG101');
+end;
